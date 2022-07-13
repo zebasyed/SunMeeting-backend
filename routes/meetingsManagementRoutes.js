@@ -13,5 +13,12 @@ router.post("/api/meetings/create", (req, res, next) => {
     createMeetings.createMeeting(req, res, next);
 });
 
+router.delete("/api/meetings/delete", (req, res, next) => {
+    deleteMeeting.deleteMeeting(req, res, next);
+});
+
+router.put("/api/meetings/edit", (req, res, next) => {
+    editMeeting.editMeeting(req, res, next);
+});
 
 module.exports = router;

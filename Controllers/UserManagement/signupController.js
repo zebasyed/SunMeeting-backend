@@ -16,6 +16,9 @@ const signup = (req, res, next) => {
     );
     console.log(isPresent);
     if (isPresent === -1) {
+      let obj = req.body;
+      let ramdomNumber = Math.floor(Math.random()*(999-100+1)+100); // generate random number bewtenn 100 to 999
+      obj.userId = req.body.firstName + req.body.lastName + ramdomNumber;
       parsedData.push(req.body);
       const result = fileOperations.writeToFile(
         newPath + "MockData/users.json",

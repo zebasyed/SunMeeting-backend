@@ -13,12 +13,17 @@ const createMeeting = (req, res, next) => {
     let index = parsedData.findIndex(
       (item) => item.organizer === req.body.organizer
     );
+    console.log("index+++++++",index)
+
+    let obj = req.body.meetings[0];
+    obj.meetingId = obj.desc + Math.floor(Math.random()*(999-100+1)+100);
 
     if (index === -1) {
-      parsedData.push(req.body);
+      parsedData.push(req.body.meetings[0]);
       // parsedData = req.body;
     } else {
       parsedData[index].meetings.push(req.body.meetings[0]);
+      console.log("check",parsedData.meetings);
     }
   } else {
     parsedData.push(req.body);
